@@ -1,0 +1,142 @@
+[
+  {
+    "id": "ccbf8ccb-12b9-4f33-b5a2-cb2d38039d3e",
+    "identifiers": [
+      "12341234",
+      "1234"
+    ],
+    "firstName": "Patient",
+    "lastName": "Alpha",
+    "dateOfBirth": "1980-01-10T00:00:00.000Z",
+    "addresses": [
+      {
+        "type": "home",
+        "lines": [
+          "Casilla de Correo 432",
+          "Correo Central",
+          "C1000WAM Capital Federal"
+        ],
+        "country": "Argentina"
+      },
+      {
+        "type": "work",
+        "lines" : [
+          "Sumo Informática S.A.",
+          "Calle 39 No 1540",
+          "B1000TBU San Sebastian"
+        ],
+        "country": "Argentina"
+      }
+    ]
+  },
+  {
+    "id": "9341fce0-5864-4b8a-a850-1ec0689482b3",
+    "identifiers": [
+      "56785678",
+      "5678"
+    ],
+    "firstName": "Patient",
+    "lastName": "Beta",
+    "dateOfBirth": "1995-03-30T00:00:00.000Z",
+    "addresses": [
+      {
+        "type": "work",
+        "lines" : [
+          "LANCE MULTILINGUA-EBEL",
+          "FOREIGN TEACHERS' MAILBOX",
+          "LIANGANG MIDDLE SCHOOL",
+          "LOUDI",
+          "HUNAN",
+          "417009"
+        ],
+        "country" : "People's Republic of China"
+      }
+    ]
+  },
+  {
+    "id": "22eef0c0-0c53-4710-bbb3-6bde0a5b5396",
+    "identifiers": [
+      "AAAAAAAA",
+      "AAAA"
+    ],
+    "firstName": "Patient",
+    "lastName": "Gamma",
+    "dateOfBirth": "1942-12-24T23:00:00.000Z",
+    "addresses": [
+      {
+        "type": "home",
+        "lines" : [
+          "вул. Цэнтральная, д. 20",
+          "в. Караліставічы",
+          "223016, п/а Новы Двор",
+          "Мінскага р-на.",
+          "Мінскай вобл."
+        ],
+        "country" : "Беларусь"
+      }
+    ]
+  },
+  {
+    "id": "2a78520e-f891-4302-b1a8-f126fab02a1b",
+    "identifiers": [
+      "BBBBBBBB",
+      "BBBB"
+    ],
+    "firstName": "Patient",
+    "lastName": "Delta",
+    "dateOfBirth": "1915-02-14T00:00:00.000Z",
+    "addresses": [
+      {
+        "type": "home",
+        "lines" : [
+          "日本国 〒112-0001",
+          "東京都文京区白山4丁目3-2",
+          "田中 太郎 様"
+        ],
+        "country" : "Japan"
+      }
+    ]
+  },
+  {
+    "id": "f0d77fa7-f1b9-4dd1-aafa-9e950def5b09",
+    "identifiers": [
+      "CCCCCCCC",
+      "CCCC"
+    ],
+    "firstName": "Patient",
+    "lastName": "Phi",
+    "dateOfBirth": "1925-01-19T00:00:00.000Z",
+    "addresses": [
+      {
+        "type": "home",
+        "lines" : [
+          "90210 Palm Drive",
+          "Greenville",
+          "CA 90211"
+        ],
+        "country" : "USA"
+      }
+    ]
+  },
+  {
+    "id": "e572a0fe-80b8-4b3c-93b0-3987f41b87a4",
+    "identifiers": [
+      "DDDDDDDD",
+      "DDDD"
+    ],
+    "firstName": "Patient",
+    "lastName": "Epsilon",
+    "dateOfBirth": "1933-07-09T00:00:00.000Z",
+    "addresses": [
+      {
+        "type": "home",
+        "lines" : [
+          "90210 Palm Drive",
+          "Greenville",
+          "CA 90210"
+        ],
+        "country" : "USA"
+      }
+    ]
+  }
+]
