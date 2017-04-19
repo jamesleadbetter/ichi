@@ -6,7 +6,7 @@ Please follow the instructions below and when you are done, put your code into a
  
 Feel free to use as much Google-Fu as you need to (that is what we do on a daily basis) - however, you need to do the test on your own. Any outside help is not in the spirit of the test and will result in seven or eight years of bad luck, depending on which is worst for you.
 
-*Impress us with your skills and show us what you can do! This is your chance to shine and the more we see the better.*
+**Impress us with your skills and show us what you can do! This is your chance to shine and the more we see the better.**
 
 # Pre-requesites
 
