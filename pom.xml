@@ -27,6 +27,7 @@
 		<jodd-core.version>3.6.5</jodd-core.version>
 		<springfox-swagger2.version>2.5.0</springfox-swagger2.version>
 		<swagger-ui.version>2.1.4</swagger-ui.version>
+		<concurrent-unit.version>0.4.3</concurrent-unit.version>
 
 		<java.version>1.8</java.version>
 
@@ -90,6 +91,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>net.jodah</groupId>
+			<artifactId>concurrentunit</artifactId>
+			<version>${concurrent-unit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 		<!--==========================================-->
 	</dependencies>
 

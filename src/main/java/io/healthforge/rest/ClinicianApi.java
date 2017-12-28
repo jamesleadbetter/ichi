@@ -4,6 +4,8 @@
 
 package io.healthforge.rest;
 
+import io.healthforge.exception.InvalidModelException;
+import io.healthforge.exception.NotFoundException;
 import io.healthforge.models.Clinician;
 import io.healthforge.models.GenericResponse;
 import io.healthforge.models.ResultSet;
@@ -70,7 +72,7 @@ public class ClinicianApi {
             produces = {MimeTypes.MIME_APPLICATION_JSON})
     @ApiOperation(tags = { "clinician" }, value = "Updates a clinician.",
             notes = "Updates a clinician.")
-    public Clinician put(@PathVariable String clinicianId, @RequestBody Clinician entity) throws NotFoundException {
+    public Clinician put(@PathVariable String clinicianId, @RequestBody Clinician entity) throws NotFoundException, InvalidModelException {
         if(!entity.getId().equals(UUID.fromString(clinicianId))) {
             throw new NotFoundException();
         }

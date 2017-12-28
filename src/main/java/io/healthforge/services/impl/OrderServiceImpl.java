@@ -7,8 +7,9 @@ package io.healthforge.services.impl;
 import io.healthforge.events.Dispatcher;
 import io.healthforge.events.handlers.orders.NewOrderEvent;
 import io.healthforge.events.handlers.orders.UpdateOrderEvent;
+import io.healthforge.exception.InvalidModelException;
 import io.healthforge.models.orders.Order;
-import io.healthforge.rest.NotFoundException;
+import io.healthforge.exception.NotFoundException;
 import io.healthforge.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -39,7 +40,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
     }
 
     @Override
-    public Order update(Order item) throws NotFoundException {
+    public Order update(Order item) throws NotFoundException, InvalidModelException {
         item = super.update(item);
         dispatcher.dispatch(new UpdateOrderEvent(this, item));
         return item;

@@ -11,4 +11,5 @@ import io.healthforge.models.Patient;
  */
 public interface PatientService extends BaseService<Patient> {
 
+    String POSTCODE_PARAM = "postcode";
 }

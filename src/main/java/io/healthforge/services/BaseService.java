@@ -4,9 +4,10 @@
 
 package io.healthforge.services;
 
+import io.healthforge.exception.InvalidModelException;
 import io.healthforge.models.BaseEntity;
 import io.healthforge.models.ResultSet;
-import io.healthforge.rest.NotFoundException;
+import io.healthforge.exception.NotFoundException;
 
 import java.util.Map;
 import java.util.UUID;
@@ -24,7 +25,7 @@ public interface BaseService<T extends BaseEntity> {
 
     ResultSet<T> get(int offset, int limit, Map<String, Object> searchParams);
 
-    T update(T item) throws NotFoundException;
+    T update(T item) throws NotFoundException, InvalidModelException;
 
     void remove(T item);
 

@@ -10,12 +10,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.ISO8601DateFormat;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
 import com.google.common.collect.Lists;
+import io.healthforge.exception.InvalidModelException;
 import io.healthforge.models.Clinician;
 import io.healthforge.models.Patient;
 import io.healthforge.models.orders.Order;
 import io.healthforge.models.orders.OrderStatus;
 import io.healthforge.models.orders.SimpleOrder;
-import io.healthforge.rest.NotFoundException;
+import io.healthforge.exception.NotFoundException;
 import io.healthforge.services.ClinicianService;
 import io.healthforge.services.OrderService;
 import io.healthforge.services.PatientService;
@@ -72,7 +73,7 @@ public class App implements ApplicationListener<ApplicationReadyEvent> {
 		objectMapper.setDateFormat(new ISO8601DateFormat());
 		MappingIterator<Patient> patients = null;
 		try {
-			InputStream stream = resourceLoader.getResource("/Users/Timmy/data/patients.json").getInputStream();
+			final InputStream stream = this.resourceLoader.getClassLoader().getResourceAsStream("patients.json");
 			patients = objectMapper.readerFor(Patient.class).readValues(stream);
 			for (Patient patient : patients.readAll()) {
 				logger.info("{} {} {}", patient.getId(), patient.getFirstName(), patient.getLastName());
@@ -105,7 +106,7 @@ public class App implements ApplicationListener<ApplicationReadyEvent> {
 	 * Every few seconds this method will process a random order request and change its state
 	 */
 	@Scheduled(initialDelay = 5000, fixedDelay=1250)
-	public void doProcessOrderRequest() throws NotFoundException {
+	public void doProcessOrderRequest() throws NotFoundException, InvalidModelException {
 		Order order = randomOrder();
 		if(order != null) {
 			if(order.getOrderStatus().equals(OrderStatus.NEW)) {
@@ -123,7 +124,7 @@ public class App implements ApplicationListener<ApplicationReadyEvent> {
 	 * Every 6 seconds this method will abort a random order
 	 */
 	@Scheduled(initialDelay = 5000, fixedDelay=6000)
-	public void doAbortOrderRequest() throws NotFoundException {
+	public void doAbortOrderRequest() throws NotFoundException, InvalidModelException {
 		Order order = randomOrder();
 		if(order != null) {
 			if(order.getOrderStatus().equals(OrderStatus.PENDING)) {

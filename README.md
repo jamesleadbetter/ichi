@@ -1,5 +1,16 @@
 # HealthForge Coding Quiz
 
+# Solution
+For Questions 1 and 2 see tests and swagger-ui at [http://localhost:8080/](http://localhost:8080/)
+
+For Question 3, see output.json in the output directory of csv-results-parser. To run code, ensure npm and node are installed then, from the csv-results-parser directory, run:
+```
+$ npm install
+
+$ npm start
+```
+
+# Introduction
 Hello! Thanks for taking the time to do our technical test. We know these are annoying, but we need a way to assess everyone that we employ to avoid disappointment on both sides later on.
 
 Please follow the instructions below and when you are done, put your code into a git repo you own and send us a link to it for us to assess. GitHub or BitBucket are both free for public repos.

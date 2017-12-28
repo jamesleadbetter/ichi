@@ -4,6 +4,8 @@
 
 package io.healthforge.rest;
 
+import io.healthforge.exception.InvalidModelException;
+import io.healthforge.exception.NotFoundException;
 import io.healthforge.models.GenericResponse;
 import io.healthforge.models.ResultSet;
 import io.healthforge.models.orders.Order;
@@ -70,7 +72,7 @@ public class OrderApi {
             produces = {MimeTypes.MIME_APPLICATION_JSON})
     @ApiOperation(tags = { "order" }, value = "Updates an order.",
             notes = "Updates an order.")
-    public Order put(@PathVariable String orderId, @RequestBody Order entity) throws NotFoundException {
+    public Order put(@PathVariable String orderId, @RequestBody Order entity) throws NotFoundException, InvalidModelException {
         if(!entity.getId().equals(UUID.fromString(orderId))) {
             throw new NotFoundException();
         }

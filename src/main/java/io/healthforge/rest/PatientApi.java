@@ -4,6 +4,8 @@
 
 package io.healthforge.rest;
 
+import io.healthforge.exception.InvalidModelException;
+import io.healthforge.exception.NotFoundException;
 import io.healthforge.models.GenericResponse;
 import io.healthforge.models.Patient;
 import io.healthforge.models.ResultSet;
@@ -53,12 +55,17 @@ public class PatientApi {
             @RequestParam(name="offset", defaultValue="0", required=false) Integer offset,
             @RequestParam(name="limit", defaultValue="10", required=false) Integer limit,
             @ApiParam(example = "10 Jan 1980")
-            @RequestParam(name="dob", required=false) String dob) {
+            @RequestParam(name="dob", required=false) String dob,
+            @RequestParam(name = "postcode", required=false) final String postcode) {
 
         Map<String, Object> searchParams = new HashMap<>();
         if(StringUtils.hasText(dob)) {
             DateTimeFormatter formatter = DateTimeFormat.forPattern("dd MMM yyyy");
             searchParams.put("dob", DateTime.parse(URLDecoder.decode(dob), formatter));
+        }
+
+        if (StringUtils.hasText(postcode)) {
+            searchParams.put(PatientService.POSTCODE_PARAM, postcode);
         }
 
         return service.get(offset, limit, searchParams);
@@ -84,7 +91,7 @@ public class PatientApi {
             produces = {MimeTypes.MIME_APPLICATION_JSON})
     @ApiOperation(tags = { "patient" }, value = "Updates a patient.",
             notes = "Updates a patient.")
-    public Patient put(@PathVariable String patientId, @RequestBody Patient entity) throws NotFoundException {
+    public Patient put(@PathVariable String patientId, @RequestBody Patient entity) throws NotFoundException, InvalidModelException {
         if(!entity.getId().equals(UUID.fromString(patientId))) {
             throw new NotFoundException();
         }

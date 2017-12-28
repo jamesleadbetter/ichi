@@ -7,9 +7,10 @@ package io.healthforge.services.impl;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+import io.healthforge.exception.InvalidModelException;
 import io.healthforge.models.BaseEntity;
 import io.healthforge.models.ResultSet;
-import io.healthforge.rest.NotFoundException;
+import io.healthforge.exception.NotFoundException;
 import io.healthforge.security.SecurityContext;
 import io.healthforge.services.BaseService;
 import org.joda.time.DateTime;
@@ -84,7 +85,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
     protected abstract List<T> getDoFilter(List<T> items, Map<String, Object> searchParams);
 
     @Override
-    public T update(T item) throws NotFoundException {
+    public T update(T item) throws NotFoundException, InvalidModelException {
         item.setModifiedOn(new DateTime());
         item.setModifiedBy(securityContext.getCurrentUser().getUsername());
         T oldItem = get(item.getId());
